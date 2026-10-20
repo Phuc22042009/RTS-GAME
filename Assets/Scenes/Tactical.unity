@@ -153,13 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa14344301faa841b8effc531136baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4655505865812673917, guid: f76d4d61d4de16742b15188343cb3fd4, type: 3}
   moveSpeed: 5
   stats:
-    maxHealth: 100
-    currentHealth: 0
-    attackDamage: 0
-    attackRange: 1
-    attackSpeed: 0
+    maxHealth: 85
+    currentHealth: 85
+    attackDamage: 18
+    attackRange: 4.5
+    attackSpeed: 1.1
+    isRanged: 1
     TeamID: 1
 --- !u!61 &318687041
 BoxCollider2D:
@@ -416,13 +418,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa14344301faa841b8effc531136baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4655505865812673917, guid: f76d4d61d4de16742b15188343cb3fd4, type: 3}
   moveSpeed: 5
   stats:
-    maxHealth: 100
-    currentHealth: 0
-    attackDamage: 0
-    attackRange: 1
-    attackSpeed: 0
+    maxHealth: 180
+    currentHealth: 180
+    attackDamage: 14
+    attackRange: 1.6
+    attackSpeed: 0.75
+    isRanged: 0
     TeamID: 0
 --- !u!1 &766900940
 GameObject:
@@ -455,13 +459,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa14344301faa841b8effc531136baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4655505865812673917, guid: f76d4d61d4de16742b15188343cb3fd4, type: 3}
   moveSpeed: 5
   stats:
-    maxHealth: 100
-    currentHealth: 0
-    attackDamage: 0
-    attackRange: 1
-    attackSpeed: 0
+    maxHealth: 85
+    currentHealth: 85
+    attackDamage: 18
+    attackRange: 4.5
+    attackSpeed: 1.1
+    isRanged: 1
     TeamID: 0
 --- !u!61 &766900942
 BoxCollider2D:
@@ -718,13 +724,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa14344301faa841b8effc531136baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4655505865812673917, guid: f76d4d61d4de16742b15188343cb3fd4, type: 3}
   moveSpeed: 5
   stats:
-    maxHealth: 100
-    currentHealth: 0
-    attackDamage: 0
-    attackRange: 1
-    attackSpeed: 0
+    maxHealth: 180
+    currentHealth: 180
+    attackDamage: 14
+    attackRange: 1.6
+    attackSpeed: 0.75
+    isRanged: 0
     TeamID: 1
 --- !u!1 &1524055623
 GameObject:

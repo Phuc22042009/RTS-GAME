@@ -32,6 +32,7 @@ public class UnitFloatingBarUI : MonoBehaviour
         if (owner.Health != null)
         {
             owner.Health.OnHealthChanged += UpdateHealthBar;
+            owner.Health.OnShieldChanged += UpdateShield;
         }
 
         if (owner.Combat != null)
@@ -51,7 +52,10 @@ public class UnitFloatingBarUI : MonoBehaviour
         if (owner != null)
         {
             if (owner.Health != null)
+            {
                 owner.Health.OnHealthChanged -= UpdateHealthBar;
+                owner.Health.OnShieldChanged -= UpdateShield;
+            }
 
             if (owner.Combat != null)
                 owner.Combat.OnManaChanged -= UpdateManaBar;
@@ -121,6 +125,21 @@ public class UnitFloatingBarUI : MonoBehaviour
         float ratio = Mathf.Clamp01(current / max);
         healthBarFill.localScale = new Vector3(ratio * BarWidth, HpHeight, 1f);
         healthBarFill.localPosition = new Vector3((-BarWidth * 0.5f) + (ratio * BarWidth * 0.5f), HpYOffset, 0f);
+    }
+
+    public void UpdateShield(float shield)
+    {
+        if (healthFillRenderer == null || owner == null || owner.Stats == null)
+            return;
+
+        if (shield > 0f)
+        {
+            healthFillRenderer.color = new Color(0.95f, 0.95f, 0.95f, 1f);
+        }
+        else
+        {
+            healthFillRenderer.color = owner.Stats.TeamID == 0 ? new Color(0.9f, 0.2f, 0.2f) : new Color(0.2f, 0.8f, 0.3f);
+        }
     }
 
     public void UpdateManaBar(float current, float max)

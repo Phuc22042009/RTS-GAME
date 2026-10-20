@@ -4,6 +4,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     [SerializeField] private UnitDataSO unitData;
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float moveSpeed = 3.5f;
     [SerializeField] private UnitStats stats = new UnitStats();
 
@@ -57,6 +58,10 @@ public class Unit : MonoBehaviour
             combat = gameObject.AddComponent<UnitCombat>();
         }
         combat.Initialize(this);
+        if (projectilePrefab != null)
+        {
+            combat.SetProjectilePrefab(projectilePrefab);
+        }
 
         visual = GetComponent<UnitVisual>();
         if (visual == null)
@@ -136,6 +141,10 @@ public class Unit : MonoBehaviour
         if (combat != null)
         {
             combat.Initialize(this);
+        if (projectilePrefab != null)
+        {
+            combat.SetProjectilePrefab(projectilePrefab);
+        }
         }
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();

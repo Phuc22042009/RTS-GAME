@@ -84,9 +84,17 @@ public class UnitCombat : MonoBehaviour
         if (owner.Stats.isRanged)
         {
             FireProjectile(target, critDamageInfo);
+            if (target != null && target.Health != null)
+            {
+                target.Health.Stun(1.0f);
+            }
         }
         else
         {
+            if (owner.Health != null)
+            {
+                owner.Health.AddShield(50f);
+            }
             ExecuteMeleeHit(target, critDamageInfo);
         }
     }
@@ -108,6 +116,25 @@ public class UnitCombat : MonoBehaviour
         if (projectilePrefab != null)
         {
             projObj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        }
+        else
+        {
+            projObj = new GameObject("Projectile");
+            projObj.transform.position = spawnPos;
+            projObj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            SpriteRenderer sr = projObj.AddComponent<SpriteRenderer>();
+            var allSprites = Resources.FindObjectsOfTypeAll<Sprite>();
+            for (int i = 0; i < allSprites.Length; i++)
+            {
+                if (allSprites[i] != null && allSprites[i].name.Contains("Projectile"))
+                {
+                    sr.sprite = allSprites[i];
+                    break;
+                }
+            }
+            BoxCollider2D col = projObj.AddComponent<BoxCollider2D>();
+            col.isTrigger = true;
+            projObj.AddComponent<ProjectileScript>();
         }
 
         if (projObj != null)
